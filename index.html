@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/95eacc2461.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>TO-DO list</h1>
+        <sub>*Mejora tu rendimiento diario*</sub>
+    </header>
+    <div class="lista">
+        <div class="cabecera-lista">
+            <!-- Poner fecha -->
+            <!-- Boton para añadir actividad -->
+            <button id="add-actividad">Añadir Actividad</button>
+            <p id="fecha-hora"></p>
+            <script>
+                function actualizarFechaHora() {
+                    let ahora = new Date();
+                    let dia = ahora.getDate().toString().padStart(2, '0');
+                    let mes = (ahora.getMonth() + 1).toString().padStart(2, '0'); // Los meses empiezan desde 0
+                    let año = ahora.getFullYear();
+
+                    let horas = ahora.getHours().toString().padStart(2, '0');
+                    let minutos = ahora.getMinutes().toString().padStart(2, '0');
+                    let segundos = ahora.getSeconds().toString().padStart(2, '0');
+
+                    let fechaHora = `${dia}/${mes}/${año} ${horas}:${minutos}:${segundos}`;
+                    document.getElementById('fecha-hora').textContent = fechaHora;
+                }
+
+                // Actualizar cada segundo
+                setInterval(actualizarFechaHora, 1000);
+
+                // Llamar a la función al cargar la página
+                actualizarFechaHora();
+            </script>
+        </div>
+        <ul id="lista-actividades"> 
+            
+        </ul>
+    </div>
+    <div id="get-info">
+        <button id="cerrar-add"><i class="fa-regular fa-circle-xmark"></i></button>
+        <h2>Añadir Actividad</h2>
+        <input id="input_act" type="text" placeholder="TO-DO" autocomplete="off">
+        <label>Color Actividad</label>
+        <input id="input_col" type="color">
+        <button id="confirmar" type="submit">Añadir</button>
+    </div>
+    <footer>DGR © 2024</footer>
+    <script src="app.js"></script>
+</body>
+</html>
