@@ -1,4 +1,4 @@
-# TO-DO_List
+# TO-DO_List 📝
 Lista TO-DO en la que se pueden crear y eliminar actividades
 
 -Crear y eliminar actividades
